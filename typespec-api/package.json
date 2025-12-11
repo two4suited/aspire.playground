@@ -1,0 +1,19 @@
+{
+  "name": "typespec-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsp compile .",
+    "watch": "tsp compile . --watch",
+    "dev": "tsp compile . --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@typespec/compiler": "^1.7.0",
+    "@typespec/http": "^1.7.0",
+    "@typespec/openapi3": "^1.7.0"
+  }
+}
