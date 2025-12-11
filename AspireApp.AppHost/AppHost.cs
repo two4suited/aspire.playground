@@ -16,4 +16,13 @@ var cosmos = builder.AddAzureCosmosDB("cosmos")
 var db = cosmos.AddCosmosDatabase("storedb");
 var stores = db.AddContainer("stores", "/id");
 
+// Add seeder as an executable that runs once after the database is ready
+var seeder = builder.AddExecutable(
+    name: "seed-database",
+    command: "dotnet",
+    workingDirectory: "../AspireApp.DataSeeder",
+    args: ["run"])
+    .WithReference(cosmos)
+    .WaitFor(cosmos);
+
 builder.Build().Run();
